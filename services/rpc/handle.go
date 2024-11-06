@@ -67,7 +67,7 @@ func (s *RpcServer) ExportPublicKeyList(ctx context.Context, in *wallet.ExportPu
 	}, nil
 }
 
-func (s *RpcServer) SignMessage(ctx context.Context, in *wallet.SignTxMessageRequest) (*wallet.SignTxMessageResponse, error) {
+func (s *RpcServer) SignTxMessage(ctx context.Context, in *wallet.SignTxMessageRequest) (*wallet.SignTxMessageResponse, error) {
 	priKey, isOk := s.db.GetPrivKey(in.PublicKey)
 	if !isOk {
 		return nil, errors.New("get private key by public key fail")
